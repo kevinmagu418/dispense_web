@@ -1,0 +1,46 @@
+
+Running 32 tests using 1 worker
+
+  ✓   1 [webkit] › e2e\consent.spec.ts:14:7 › cookie consent › banner appears for a new visitor and no tracking starts (7.8s)
+  ✓   2 [webkit] › e2e\consent.spec.ts:43:7 › cookie consent › accept all enables analytics, which then persists (13.7s)
+  ✓   3 [webkit] › e2e\consent.spec.ts:73:7 › cookie consent › reject optional keeps analytics off (9.9s)
+  ✓   4 [webkit] › e2e\consent.spec.ts:91:7 › cookie consent › preferences can be customised and are remembered (22.4s)
+  ✓   5 [webkit] › e2e\consent.spec.ts:125:7 › cookie consent › preferences close with Escape and with the close control (19.6s)
+  ✓   6 [webkit] › e2e\consent.spec.ts:141:7 › cookie consent › preferences can be reopened from the footer (16.9s)
+  ✓   7 [webkit] › e2e\consent.spec.ts:157:7 › cookie consent › banner does not obstruct the page or the mobile navigation (12.1s)
+  ✓   8 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › / renders its content (4.8s)
+  ✓   9 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › /features renders its content (3.0s)
+  ✓  10 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › /how-it-works renders its content (2.7s)
+  ✓  11 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › /download renders its content (2.8s)
+  ✓  12 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › /faq renders its content (2.7s)
+  ✓  13 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › /security renders its content (2.8s)
+  ✓  14 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › /blog renders its content (2.3s)
+  ✓  15 [webkit] › e2e\content.spec.ts:50:7 › content and navigation › navbar links navigate to each page (14.7s)
+  ✓  16 [webkit] › e2e\content.spec.ts:69:7 › content and navigation › mobile navigation opens, closes on Escape and on selection (9.4s)
+  ✓  17 [webkit] › e2e\content.spec.ts:96:7 › content and navigation › FAQ accordion opens and closes (4.0s)
+  ✓  18 [webkit] › e2e\content.spec.ts:112:7 › content and navigation › download page shows platform availability or an honest placeholder (2.0s)
+  ✓  19 [webkit] › e2e\content.spec.ts:137:7 › content and navigation › client-side navigation leaves no stale pinned sections or errors (25.8s)
+  ✓  20 [webkit] › e2e\content.spec.ts:178:7 › content and navigation › unknown routes return the styled 404 (1.4s)
+  ✓  21 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 320x568 (3.6s)
+  ✓  22 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 375x780 (3.8s)
+  ✓  23 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 414x896 (4.5s)
+  ✓  24 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 768x1024 (6.1s)
+  ✓  25 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1024x768 (4.6s)
+  ✓  26 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1440x900 (6.7s)
+  ✓  27 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1920x1080 (8.7s)
+  ✓  28 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 2560x1440 (15.8s)
+  ✓  29 [webkit] › e2e\responsive.spec.ts:70:7 › responsive layout › interactive elements are large enough to tap at 390px (3.3s)
+  ✓  30 [webkit] › e2e\responsive.spec.ts:94:7 › responsive layout › keyboard focus reaches the primary navigation and reveals a focus ring (9.8s)
+  ✓  31 [webkit] › e2e\responsive.spec.ts:126:7 › responsive layout › reduced motion keeps every word visible and unpins the story (6.5s)
+  ✓  32 [webkit] › e2e\responsive.spec.ts:159:7 › responsive layout › images are stable: no layout shift from media (5.8s)
+
+  32 passed (4.4m)
+E2E6_EXIT=0
+
+Running 2 tests using 1 worker
+
+  ✓  1 [firefox] › e2e\content.spec.ts:50:7 › content and navigation › navbar links navigate to each page (10.0s)
+  ✓  2 [firefox] › e2e\content.spec.ts:137:7 › content and navigation › client-side navigation leaves no stale pinned sections or errors (8.3s)
+
+  2 passed (22.1s)
+FF_EXIT=0

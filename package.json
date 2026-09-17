@@ -6,20 +6,39 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "og:generate": "node scripts/generate-og.mjs",
+    "verify": "node scripts/verify-site.mjs",
+    "audit:design": "node scripts/audit-design.mjs",
+    "audit:motion": "node scripts/audit-reduced-motion.mjs",
+    "screens": "node scripts/measure-screens.mjs",
+    "screenshots": "node scripts/screenshots.mjs",
+    "audit:consent": "node scripts/audit-consent.mjs",
+    "audit:perf": "node scripts/audit-performance.mjs",
+    "test:e2e": "playwright test",
+    "test:e2e:chrome": "playwright test --project=chrome",
+    "audit:video": "node scripts/audit-video.mjs",
+    "assets:sync": "node scripts/sync-assets.mjs",
+    "predev": "node scripts/sync-assets.mjs",
+    "prebuild": "node scripts/sync-assets.mjs"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.15.0",
     "next": "16.3.5",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
+    "puppeteer-core": "^23.11.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

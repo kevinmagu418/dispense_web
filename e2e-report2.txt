@@ -1,0 +1,418 @@
+
+Running 128 tests using 3 workers
+
+  ✓    1 [firefox] › e2e\consent.spec.ts:14:7 › cookie consent › banner appears for a new visitor and no tracking starts (13.8s)
+  ✓    2 [firefox] › e2e\consent.spec.ts:43:7 › cookie consent › accept all enables analytics, which then persists (16.6s)
+  ✓    3 [firefox] › e2e\consent.spec.ts:73:7 › cookie consent › reject optional keeps analytics off (15.6s)
+  ✓    6 [firefox] › e2e\consent.spec.ts:141:7 › cookie consent › preferences can be reopened from the footer (6.8s)
+  ✓    5 [firefox] › e2e\consent.spec.ts:125:7 › cookie consent › preferences close with Escape and with the close control (22.3s)
+  ✓    4 [firefox] › e2e\consent.spec.ts:91:7 › cookie consent › preferences can be customised and are remembered (31.2s)
+  ✓    8 [firefox] › e2e\content.spec.ts:31:9 › content and navigation › / renders its content (4.6s)
+  ✓   10 [firefox] › e2e\content.spec.ts:31:9 › content and navigation › /features renders its content (3.9s)
+  ✓    9 [firefox] › e2e\content.spec.ts:31:9 › content and navigation › /how-it-works renders its content (4.0s)
+  ✓   11 [firefox] › e2e\content.spec.ts:31:9 › content and navigation › /download renders its content (3.3s)
+  ✘    7 [firefox] › e2e\consent.spec.ts:157:7 › cookie consent › banner does not obstruct the page or the mobile navigation (30.5s)
+  ✓   14 [firefox] › e2e\content.spec.ts:31:9 › content and navigation › /blog renders its content (6.2s)
+  ✓   15 [firefox] › e2e\content.spec.ts:50:7 › content and navigation › navbar links navigate to each page (7.0s)
+  ✓   16 [firefox] › e2e\content.spec.ts:66:7 › content and navigation › mobile navigation opens, closes on Escape and on selection (7.8s)
+  ✓   17 [firefox] › e2e\content.spec.ts:93:7 › content and navigation › FAQ accordion opens and closes (2.7s)
+  ✓   18 [firefox] › e2e\content.spec.ts:109:7 › content and navigation › download page shows platform availability or an honest placeholder (2.2s)
+  ✘   12 [firefox] › e2e\content.spec.ts:31:9 › content and navigation › /faq renders its content (1.3m)
+  ✘   13 [firefox] › e2e\content.spec.ts:31:9 › content and navigation › /security renders its content (1.3m)
+  ✓   20 [firefox] › e2e\content.spec.ts:172:7 › content and navigation › unknown routes return the styled 404 (5.5s)
+  ✓   22 [firefox] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 375x780 (11.7s)
+  ✓   21 [firefox] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 320x568 (15.7s)
+  ✓   24 [firefox] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 768x1024 (11.0s)
+  ✘   19 [firefox] › e2e\content.spec.ts:134:7 › content and navigation › client-side navigation leaves no stale pinned sections or errors (1.4m)
+  ✓   23 [firefox] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 414x896 (24.5s)
+  ✓   26 [firefox] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1920x1080 (10.1s)
+  ✓   28 [firefox] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 2560x1440 (13.2s)
+  ✓   27 [firefox] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1440x900 (18.3s)
+  ✓   29 [firefox] › e2e\responsive.spec.ts:70:7 › responsive layout › interactive elements are large enough to tap at 390px (5.9s)
+  ✓   30 [firefox] › e2e\responsive.spec.ts:94:7 › responsive layout › keyboard focus reaches the primary navigation and reveals a focus ring (5.1s)
+  ✓   31 [firefox] › e2e\responsive.spec.ts:126:7 › responsive layout › reduced motion keeps every word visible and unpins the story (4.8s)
+  ✓   32 [firefox] › e2e\responsive.spec.ts:159:7 › responsive layout › images are stable: no layout shift from media (5.1s)
+  ✓   25 [firefox] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1024x768 (1.1m)
+  ✓   33 [webkit] › e2e\consent.spec.ts:14:7 › cookie consent › banner appears for a new visitor and no tracking starts (17.2s)
+  ✓   34 [webkit] › e2e\consent.spec.ts:43:7 › cookie consent › accept all enables analytics, which then persists (27.2s)
+  ✓   36 [webkit] › e2e\consent.spec.ts:73:7 › cookie consent › reject optional keeps analytics off (28.6s)
+  ✓   35 [webkit] › e2e\consent.spec.ts:91:7 › cookie consent › preferences can be customised and are remembered (52.2s)
+  ✓   37 [webkit] › e2e\consent.spec.ts:125:7 › cookie consent › preferences close with Escape and with the close control (42.5s)
+  ✓   40 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › / renders its content (12.9s)
+  ✓   38 [webkit] › e2e\consent.spec.ts:141:7 › cookie consent › preferences can be reopened from the footer (35.2s)
+  ✓   41 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › /features renders its content (5.5s)
+  ✓   42 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › /how-it-works renders its content (5.5s)
+  ✓   43 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › /download renders its content (5.7s)
+  ✓   44 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › /faq renders its content (5.0s)
+  ✓   39 [webkit] › e2e\consent.spec.ts:157:7 › cookie consent › banner does not obstruct the page or the mobile navigation (29.6s)
+  ✓   45 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › /security renders its content (6.0s)
+  ✓   46 [webkit] › e2e\content.spec.ts:31:9 › content and navigation › /blog renders its content (5.0s)
+  ✓   49 [webkit] › e2e\content.spec.ts:93:7 › content and navigation › FAQ accordion opens and closes (8.6s)
+  ✓   50 [webkit] › e2e\content.spec.ts:109:7 › content and navigation › download page shows platform availability or an honest placeholder (4.7s)
+  ✓   48 [webkit] › e2e\content.spec.ts:66:7 › content and navigation › mobile navigation opens, closes on Escape and on selection (18.2s)
+  ✓   52 [webkit] › e2e\content.spec.ts:172:7 › content and navigation › unknown routes return the styled 404 (3.1s)
+  ✓   53 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 320x568 (7.8s)
+  ✓   47 [webkit] › e2e\content.spec.ts:50:7 › content and navigation › navbar links navigate to each page (36.1s)
+  ✓   54 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 375x780 (7.7s)
+  ✓   55 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 414x896 (10.2s)
+  ✓   56 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 768x1024 (13.0s)
+  ✓   57 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1024x768 (13.4s)
+  ✓   51 [webkit] › e2e\content.spec.ts:134:7 › content and navigation › client-side navigation leaves no stale pinned sections or errors (43.0s)
+  ✓   58 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1440x900 (25.1s)
+  ✓   61 [webkit] › e2e\responsive.spec.ts:70:7 › responsive layout › interactive elements are large enough to tap at 390px (5.7s)
+  ✓   59 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1920x1080 (30.2s)
+  ✓   62 [webkit] › e2e\responsive.spec.ts:94:7 › responsive layout › keyboard focus reaches the primary navigation and reveals a focus ring (15.7s)
+  ✓   60 [webkit] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 2560x1440 (39.2s)
+  ✓   63 [webkit] › e2e\responsive.spec.ts:126:7 › responsive layout › reduced motion keeps every word visible and unpins the story (9.7s)
+  ✓   64 [webkit] › e2e\responsive.spec.ts:159:7 › responsive layout › images are stable: no layout shift from media (11.3s)
+  ✓   65 [iphone] › e2e\consent.spec.ts:14:7 › cookie consent › banner appears for a new visitor and no tracking starts (13.2s)
+  ✓   66 [iphone] › e2e\consent.spec.ts:43:7 › cookie consent › accept all enables analytics, which then persists (23.0s)
+  ✓   67 [iphone] › e2e\consent.spec.ts:73:7 › cookie consent › reject optional keeps analytics off (17.2s)
+  ✓   68 [iphone] › e2e\consent.spec.ts:91:7 › cookie consent › preferences can be customised and are remembered (33.7s)
+  ✓   70 [iphone] › e2e\consent.spec.ts:141:7 › cookie consent › preferences can be reopened from the footer (24.2s)
+  ✓   69 [iphone] › e2e\consent.spec.ts:125:7 › cookie consent › preferences close with Escape and with the close control (31.3s)
+  ✓   73 [iphone] › e2e\content.spec.ts:31:9 › content and navigation › /features renders its content (5.7s)
+  ✓   72 [iphone] › e2e\content.spec.ts:31:9 › content and navigation › / renders its content (10.2s)
+  ✓   74 [iphone] › e2e\content.spec.ts:31:9 › content and navigation › /how-it-works renders its content (4.3s)
+  ✓   75 [iphone] › e2e\content.spec.ts:31:9 › content and navigation › /download renders its content (4.2s)
+  ✓   76 [iphone] › e2e\content.spec.ts:31:9 › content and navigation › /faq renders its content (4.3s)
+  ✓   77 [iphone] › e2e\content.spec.ts:31:9 › content and navigation › /security renders its content (4.3s)
+  ✓   78 [iphone] › e2e\content.spec.ts:31:9 › content and navigation › /blog renders its content (4.8s)
+  ✓   71 [iphone] › e2e\consent.spec.ts:157:7 › cookie consent › banner does not obstruct the page or the mobile navigation (56.9s)
+  ✓   80 [iphone] › e2e\content.spec.ts:66:7 › content and navigation › mobile navigation opens, closes on Escape and on selection (34.9s)
+  ✓   82 [iphone] › e2e\content.spec.ts:109:7 › content and navigation › download page shows platform availability or an honest placeholder (4.8s)
+  ✓   81 [iphone] › e2e\content.spec.ts:93:7 › content and navigation › FAQ accordion opens and closes (12.9s)
+  ✓   84 [iphone] › e2e\content.spec.ts:172:7 › content and navigation › unknown routes return the styled 404 (2.3s)
+  ✓   85 [iphone] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 320x568 (7.0s)
+  ✓   86 [iphone] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 375x780 (8.3s)
+  ✓   87 [iphone] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 414x896 (13.5s)
+  ✘   79 [iphone] › e2e\content.spec.ts:50:7 › content and navigation › navbar links navigate to each page (1.3m)
+  ✓   88 [iphone] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 768x1024 (25.8s)
+  ✓   89 [iphone] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1024x768 (20.2s)
+  ✘   83 [iphone] › e2e\content.spec.ts:134:7 › content and navigation › client-side navigation leaves no stale pinned sections or errors (1.3m)
+  ✓   90 [iphone] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1440x900 (21.7s)
+  ✓   93 [iphone] › e2e\responsive.spec.ts:70:7 › responsive layout › interactive elements are large enough to tap at 390px (7.6s)
+  ✓   91 [iphone] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1920x1080 (36.6s)
+  ✓   94 [iphone] › e2e\responsive.spec.ts:94:7 › responsive layout › keyboard focus reaches the primary navigation and reveals a focus ring (9.6s)
+  ✓   95 [iphone] › e2e\responsive.spec.ts:126:7 › responsive layout › reduced motion keeps every word visible and unpins the story (7.4s)
+  ✓   96 [iphone] › e2e\responsive.spec.ts:159:7 › responsive layout › images are stable: no layout shift from media (12.0s)
+  ✓   97 [android] › e2e\consent.spec.ts:14:7 › cookie consent › banner appears for a new visitor and no tracking starts (5.3s)
+  ✓   98 [android] › e2e\consent.spec.ts:73:7 › cookie consent › reject optional keeps analytics off (4.0s)
+  ✓  100 [android] › e2e\consent.spec.ts:91:7 › cookie consent › preferences can be customised and are remembered (7.5s)
+  ✓   99 [android] › e2e\consent.spec.ts:43:7 › cookie consent › accept all enables analytics, which then persists (10.7s)
+  ✓  101 [android] › e2e\consent.spec.ts:125:7 › cookie consent › preferences close with Escape and with the close control (5.2s)
+  ✓  102 [android] › e2e\consent.spec.ts:141:7 › cookie consent › preferences can be reopened from the footer (7.4s)
+  ✓  104 [android] › e2e\content.spec.ts:31:9 › content and navigation › / renders its content (5.2s)
+  ✓  103 [android] › e2e\consent.spec.ts:157:7 › cookie consent › banner does not obstruct the page or the mobile navigation (12.1s)
+  ✓  105 [android] › e2e\content.spec.ts:31:9 › content and navigation › /features renders its content (4.8s)
+  ✓  106 [android] › e2e\content.spec.ts:31:9 › content and navigation › /how-it-works renders its content (4.0s)
+  ✓  107 [android] › e2e\content.spec.ts:31:9 › content and navigation › /download renders its content (3.9s)
+  ✓  108 [android] › e2e\content.spec.ts:31:9 › content and navigation › /faq renders its content (5.0s)
+  ✓  109 [android] › e2e\content.spec.ts:31:9 › content and navigation › /security renders its content (4.2s)
+  ✓  110 [android] › e2e\content.spec.ts:31:9 › content and navigation › /blog renders its content (3.9s)
+  ✓  112 [android] › e2e\content.spec.ts:66:7 › content and navigation › mobile navigation opens, closes on Escape and on selection (6.6s)
+  ✘   92 [iphone] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 2560x1440 (1.4m)
+  ✓  113 [android] › e2e\content.spec.ts:93:7 › content and navigation › FAQ accordion opens and closes (8.8s)
+  ✓  114 [android] › e2e\content.spec.ts:109:7 › content and navigation › download page shows platform availability or an honest placeholder (3.8s)
+  ✓  116 [android] › e2e\content.spec.ts:172:7 › content and navigation › unknown routes return the styled 404 (1.6s)
+  ✓  117 [android] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 320x568 (6.4s)
+  ✓  118 [android] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 375x780 (5.0s)
+  ✓  119 [android] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 414x896 (5.8s)
+  ✓  120 [android] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 768x1024 (4.9s)
+  ✓  121 [android] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1024x768 (5.6s)
+  ✓  122 [android] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1440x900 (6.1s)
+  ✓  123 [android] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 1920x1080 (6.7s)
+  ✓  124 [android] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 2560x1440 (7.2s)
+  ✓  125 [android] › e2e\responsive.spec.ts:70:7 › responsive layout › interactive elements are large enough to tap at 390px (3.2s)
+  ✓  126 [android] › e2e\responsive.spec.ts:94:7 › responsive layout › keyboard focus reaches the primary navigation and reveals a focus ring (3.6s)
+  ✓  127 [android] › e2e\responsive.spec.ts:126:7 › responsive layout › reduced motion keeps every word visible and unpins the story (3.6s)
+  ✘  111 [android] › e2e\content.spec.ts:50:7 › content and navigation › navbar links navigate to each page (1.3m)
+  ✓  128 [android] › e2e\responsive.spec.ts:159:7 › responsive layout › images are stable: no layout shift from media (2.9s)
+  ✘  115 [android] › e2e\content.spec.ts:134:7 › content and navigation › client-side navigation leaves no stale pinned sections or errors (1.3m)
+
+
+  1) [firefox] › e2e\consent.spec.ts:157:7 › cookie consent › banner does not obstruct the page or the mobile navigation 
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected pattern: /\/download$/
+    Received string:  "http://localhost:3000/"
+    Timeout: 8000ms
+
+    Call log:
+      - Expect "toHaveURL" with timeout 8000ms
+
+
+      166 |     await expect(heroCta).toBeVisible();
+      167 |     await heroCta.click();
+    > 168 |     await expect(page).toHaveURL(/\/download$/);
+          |                        ^
+      169 |
+      170 |     await page.goto("/");
+      171 |     await page.getByRole("button", { name: "Open menu" }).click();
+        at C:\Users\LIVEWAVE\Downloads\dispense-Web\dispense-website\e2e\consent.spec.ts:168:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\consent-cookie-consent-ban-87c22-ge-or-the-mobile-navigation-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\consent-cookie-consent-ban-87c22-ge-or-the-mobile-navigation-firefox\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\consent-cookie-consent-ban-87c22-ge-or-the-mobile-navigation-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\consent-cookie-consent-ban-87c22-ge-or-the-mobile-navigation-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [firefox] › e2e\content.spec.ts:31:9 › content and navigation › /faq renders its content ──────
+
+    Test timeout of 75000ms exceeded.
+
+    Error: page.goto: Test timeout of 75000ms exceeded.
+    Call log:
+      - navigating to "http://localhost:3000/faq", waiting until "load"
+
+
+      32 |       const errors = await failOnConsoleErrors(page);
+      33 |
+    > 34 |       const response = await page.goto(route.path);
+         |                                   ^
+      35 |       expect(response?.status()).toBe(200);
+      36 |
+      37 |       await expect(page.getByRole("heading", { level: 1 })).toContainText(route.heading);
+        at C:\Users\LIVEWAVE\Downloads\dispense-Web\dispense-website\e2e\content.spec.ts:34:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\content-content-and-navigation-faq-renders-its-content-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\content-content-and-navigation-faq-renders-its-content-firefox\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\content-content-and-navigation-faq-renders-its-content-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\content-content-and-navigation-faq-renders-its-content-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [firefox] › e2e\content.spec.ts:31:9 › content and navigation › /security renders its content ─
+
+    Test timeout of 75000ms exceeded.
+
+    Error: page.goto: Test timeout of 75000ms exceeded.
+    Call log:
+      - navigating to "http://localhost:3000/security", waiting until "load"
+
+
+      32 |       const errors = await failOnConsoleErrors(page);
+      33 |
+    > 34 |       const response = await page.goto(route.path);
+         |                                   ^
+      35 |       expect(response?.status()).toBe(200);
+      36 |
+      37 |       await expect(page.getByRole("heading", { level: 1 })).toContainText(route.heading);
+        at C:\Users\LIVEWAVE\Downloads\dispense-Web\dispense-website\e2e\content.spec.ts:34:35
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\content-content-and-navigation-security-renders-its-content-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\content-content-and-navigation-security-renders-its-content-firefox\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\content-content-and-navigation-security-renders-its-content-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\content-content-and-navigation-security-renders-its-content-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [firefox] › e2e\content.spec.ts:134:7 › content and navigation › client-side navigation leaves no stale pinned sections or errors 
+
+    Test timeout of 75000ms exceeded.
+
+    Error: page.goto: Test timeout of 75000ms exceeded.
+    Call log:
+      - navigating to "http://localhost:3000/", waiting until "load"
+
+
+      136 |     page.on("pageerror", (error) => errors.push(error.message.slice(0, 160)));
+      137 |
+    > 138 |     await page.goto("/");
+          |                ^
+      139 |     const primary = page.getByRole("navigation", { name: "Primary" });
+      140 |
+      141 |     /* Soft navigations: layout effects must clean up after themselves. */
+        at C:\Users\LIVEWAVE\Downloads\dispense-Web\dispense-website\e2e\content.spec.ts:138:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\content-content-and-naviga-dd2c3-e-pinned-sections-or-errors-firefox\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\content-content-and-naviga-dd2c3-e-pinned-sections-or-errors-firefox\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\content-content-and-naviga-dd2c3-e-pinned-sections-or-errors-firefox\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\content-content-and-naviga-dd2c3-e-pinned-sections-or-errors-firefox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [iphone] › e2e\content.spec.ts:50:7 › content and navigation › navbar links navigate to each page 
+
+    Test timeout of 75000ms exceeded.
+
+    Error: locator.click: Test timeout of 75000ms exceeded.
+    Call log:
+      - waiting for getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: 'Features' })
+
+
+      58 |       const link = page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: label });
+      59 |       if (label === "Download") continue; // the primary CTA is covered by the download specs
+    > 60 |       await link.click();
+         |                  ^
+      61 |       await expect(page).toHaveURL(new RegExp(`${route.path.replace(/\//g, "\\/")}$`));
+      62 |       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+      63 |     }
+        at C:\Users\LIVEWAVE\Downloads\dispense-Web\dispense-website\e2e\content.spec.ts:60:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\content-content-and-naviga-88768-links-navigate-to-each-page-iphone\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\content-content-and-naviga-88768-links-navigate-to-each-page-iphone\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\content-content-and-naviga-88768-links-navigate-to-each-page-iphone\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\content-content-and-naviga-88768-links-navigate-to-each-page-iphone\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [iphone] › e2e\content.spec.ts:134:7 › content and navigation › client-side navigation leaves no stale pinned sections or errors 
+
+    Test timeout of 75000ms exceeded.
+
+    Error: locator.click: Test timeout of 75000ms exceeded.
+    Call log:
+      - waiting for getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: 'Features' })
+
+
+      140 |
+      141 |     /* Soft navigations: layout effects must clean up after themselves. */
+    > 142 |     await primary.getByRole("link", { name: "Features" }).click();
+          |                                                           ^
+      143 |     await expect(page).toHaveURL(/\/features$/);
+      144 |     await primary.getByRole("link", { name: "How it works" }).click();
+      145 |     await expect(page).toHaveURL(/\/how-it-works$/);
+        at C:\Users\LIVEWAVE\Downloads\dispense-Web\dispense-website\e2e\content.spec.ts:142:59
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\content-content-and-naviga-dd2c3-e-pinned-sections-or-errors-iphone\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\content-content-and-naviga-dd2c3-e-pinned-sections-or-errors-iphone\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\content-content-and-naviga-dd2c3-e-pinned-sections-or-errors-iphone\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\content-content-and-naviga-dd2c3-e-pinned-sections-or-errors-iphone\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [iphone] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 2560x1440 
+
+    Test timeout of 75000ms exceeded.
+
+    Error Context: test-results\responsive-responsive-layo-1f721-ontal-overflow-at-2560x1440-iphone\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\responsive-responsive-layo-1f721-ontal-overflow-at-2560x1440-iphone\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\responsive-responsive-layo-1f721-ontal-overflow-at-2560x1440-iphone\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [android] › e2e\content.spec.ts:50:7 › content and navigation › navbar links navigate to each page 
+
+    Test timeout of 75000ms exceeded.
+
+    Error: locator.click: Test timeout of 75000ms exceeded.
+    Call log:
+      - waiting for getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: 'Features' })
+
+
+      58 |       const link = page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: label });
+      59 |       if (label === "Download") continue; // the primary CTA is covered by the download specs
+    > 60 |       await link.click();
+         |                  ^
+      61 |       await expect(page).toHaveURL(new RegExp(`${route.path.replace(/\//g, "\\/")}$`));
+      62 |       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+      63 |     }
+        at C:\Users\LIVEWAVE\Downloads\dispense-Web\dispense-website\e2e\content.spec.ts:60:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\content-content-and-naviga-88768-links-navigate-to-each-page-android\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\content-content-and-naviga-88768-links-navigate-to-each-page-android\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\content-content-and-naviga-88768-links-navigate-to-each-page-android\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\content-content-and-naviga-88768-links-navigate-to-each-page-android\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [android] › e2e\content.spec.ts:134:7 › content and navigation › client-side navigation leaves no stale pinned sections or errors 
+
+    Test timeout of 75000ms exceeded.
+
+    Error: locator.click: Test timeout of 75000ms exceeded.
+    Call log:
+      - waiting for getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: 'Features' })
+
+
+      140 |
+      141 |     /* Soft navigations: layout effects must clean up after themselves. */
+    > 142 |     await primary.getByRole("link", { name: "Features" }).click();
+          |                                                           ^
+      143 |     await expect(page).toHaveURL(/\/features$/);
+      144 |     await primary.getByRole("link", { name: "How it works" }).click();
+      145 |     await expect(page).toHaveURL(/\/how-it-works$/);
+        at C:\Users\LIVEWAVE\Downloads\dispense-Web\dispense-website\e2e\content.spec.ts:142:59
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\content-content-and-naviga-dd2c3-e-pinned-sections-or-errors-android\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\content-content-and-naviga-dd2c3-e-pinned-sections-or-errors-android\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\content-content-and-naviga-dd2c3-e-pinned-sections-or-errors-android\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\content-content-and-naviga-dd2c3-e-pinned-sections-or-errors-android\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9 failed
+    [firefox] › e2e\consent.spec.ts:157:7 › cookie consent › banner does not obstruct the page or the mobile navigation 
+    [firefox] › e2e\content.spec.ts:31:9 › content and navigation › /faq renders its content ───────
+    [firefox] › e2e\content.spec.ts:31:9 › content and navigation › /security renders its content ──
+    [firefox] › e2e\content.spec.ts:134:7 › content and navigation › client-side navigation leaves no stale pinned sections or errors 
+    [iphone] › e2e\content.spec.ts:50:7 › content and navigation › navbar links navigate to each page 
+    [iphone] › e2e\content.spec.ts:134:7 › content and navigation › client-side navigation leaves no stale pinned sections or errors 
+    [iphone] › e2e\responsive.spec.ts:26:9 › responsive layout › no horizontal overflow at 2560x1440 
+    [android] › e2e\content.spec.ts:50:7 › content and navigation › navbar links navigate to each page 
+    [android] › e2e\content.spec.ts:134:7 › content and navigation › client-side navigation leaves no stale pinned sections or errors 
+  119 passed (13.0m)
+E2E2_EXIT=1

@@ -1,26 +1,620 @@
 @import "tailwindcss";
 
+/* ============================================================================
+   DISPENSE DESIGN TOKENS
+   Website-level tokens derived from the Dispense mobile design system.
+   Values live here once — components consume Tailwind utilities or var(--…).
+   ========================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand ---------------------------------------------------------------- */
+  --dispense-blue: #1565ff;
+  --dispense-blue-dark: #0052d4;
+  --dispense-blue-pressed: #003eb3;
+  --dispense-blue-soft: #e7efff;
+  --dispense-blue-tint: #f3f7ff;
+
+  /* Surfaces & type ------------------------------------------------------ */
+  --dispense-bg: #f6f7fb;
+  --dispense-bg-alt: #eef1f8;
+  --dispense-surface: #ffffff;
+  --dispense-surface-muted: #fbfcfe;
+  --dispense-ink: #0a1020;
+  --dispense-text: #141c2e;
+  --dispense-text-secondary: #59637a;
+  /* Muted text is used at 13–16px, so it is tuned to clear WCAG AA (4.5:1)
+     on both the canvas and white surfaces rather than being merely decorative. */
+  --dispense-muted: #6b7280;
+  --dispense-border: #e4e7ee;
+  --dispense-border-subtle: #eef0f6;
+
+  /* Dark sections (used selectively for contrast) ------------------------ */
+  --dispense-night: #070c18;
+  --dispense-night-surface: #0e1526;
+  --dispense-night-border: rgba(255, 255, 255, 0.1);
+  --dispense-night-text: #e8ecf5;
+  --dispense-night-muted: #97a2ba;
+
+  /* Category accents (mobile palette) ------------------------------------ */
+  --dispense-rent: #1565ff;
+  --dispense-transport: #16a34a;
+  --dispense-groceries: #111827;
+  --dispense-savings: #0e7490;
+  --dispense-emergency: #9333ea;
+  --dispense-education: #e11d48;
+  --dispense-income: #16a34a;
+  --dispense-expense: #dc2626;
+
+  /* Elevation ------------------------------------------------------------ */
+  --dispense-shadow-sm: 0 1px 2px rgba(10, 16, 32, 0.04), 0 4px 12px -6px rgba(10, 16, 32, 0.08);
+  --dispense-shadow-md: 0 2px 4px rgba(10, 16, 32, 0.04), 0 18px 40px -22px rgba(10, 16, 32, 0.18);
+  --dispense-shadow-lg: 0 30px 80px -40px rgba(10, 16, 32, 0.32);
+
+  color-scheme: light;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  --color-canvas: var(--dispense-bg);
+  --color-canvas-alt: var(--dispense-bg-alt);
+  --color-surface: var(--dispense-surface);
+  --color-surface-2: var(--dispense-surface-muted);
+
+  --color-ink: var(--dispense-ink);
+  --color-body: var(--dispense-text);
+  --color-subtle: var(--dispense-text-secondary);
+  --color-faint: var(--dispense-muted);
+
+  --color-line: var(--dispense-border);
+  --color-line-soft: var(--dispense-border-subtle);
+
+  --color-brand: var(--dispense-blue);
+  --color-brand-dark: var(--dispense-blue-dark);
+  --color-brand-pressed: var(--dispense-blue-pressed);
+  --color-brand-soft: var(--dispense-blue-soft);
+  --color-brand-tint: var(--dispense-blue-tint);
+
+  --color-night: var(--dispense-night);
+  --color-night-2: var(--dispense-night-surface);
+
+  --color-cat-rent: var(--dispense-rent);
+  --color-cat-transport: var(--dispense-transport);
+  --color-cat-groceries: var(--dispense-groceries);
+  --color-cat-savings: var(--dispense-savings);
+  --color-cat-emergency: var(--dispense-emergency);
+  --color-cat-education: var(--dispense-education);
+  --color-cat-income: var(--dispense-income);
+  --color-cat-expense: var(--dispense-expense);
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --shadow-soft: var(--dispense-shadow-sm);
+  --shadow-card: var(--dispense-shadow-md);
+  --shadow-deep: var(--dispense-shadow-lg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--dispense-border-subtle);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: var(--dispense-bg);
+    color: var(--dispense-text);
+    font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* No overflow-x suppression here on purpose: horizontal overflow would be a
+       layout bug to fix, not to hide. Decorative motion is clipped locally. */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--dispense-ink);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--dispense-blue);
+    color: #fff;
+  }
+
+  /* Anchor targets must clear the fixed navbar, otherwise a heading scrolls
+     underneath it. */
+  [id] {
+    scroll-margin-top: 6.5rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--dispense-blue);
+    outline-offset: 3px;
+    border-radius: var(--radius-xs);
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================================
+   TYPOGRAPHY SCALE
+   ========================================================================== */
+
+@layer components {
+  .t-display {
+    font-size: clamp(2.5rem, 1.35rem + 4.2vw, 4.75rem);
+    line-height: 1.03;
+    letter-spacing: -0.033em;
+    font-weight: 700;
+  }
+
+  .t-h1 {
+    font-size: clamp(2.125rem, 1.35rem + 2.9vw, 3.5rem);
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
+  .t-h2 {
+    font-size: clamp(1.75rem, 1.2rem + 2.1vw, 2.875rem);
+    line-height: 1.1;
+    letter-spacing: -0.027em;
+    font-weight: 700;
+  }
+
+  .t-h3 {
+    font-size: clamp(1.3125rem, 1.16rem + 0.6vw, 1.625rem);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    font-weight: 650;
+  }
+
+  .t-h4 {
+    font-size: 1.125rem;
+    line-height: 1.35;
+    letter-spacing: -0.012em;
+    font-weight: 650;
+  }
+
+  .t-lead {
+    font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.3125rem);
+    line-height: 1.6;
+    color: var(--dispense-text-secondary);
+    letter-spacing: -0.011em;
+  }
+
+  .t-body {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--dispense-text-secondary);
+  }
+
+  .t-small {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--dispense-text-secondary);
+  }
+
+  .t-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 650;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .t-num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  /* Layout -------------------------------------------------------------- */
+  .container-x {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .container-narrow {
+    width: 100%;
+    max-width: 61rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .section {
+    padding-block: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+  }
+
+  .section-tight {
+    padding-block: clamp(3rem, 2rem + 4vw, 5.5rem);
+  }
+
+  .hairline {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--dispense-border) 12%,
+      var(--dispense-border) 88%,
+      transparent
+    );
+  }
+
+  /* Surfaces ------------------------------------------------------------ */
+  .card {
+    background: var(--dispense-surface);
+    border: 1px solid var(--dispense-border-subtle);
+    border-radius: var(--radius-lg);
+  }
+
+  .card-elevated {
+    background: var(--dispense-surface);
+    border: 1px solid var(--dispense-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--dispense-shadow-sm);
+  }
+
+  /* Viewport units ------------------------------------------------------ *
+   * `vh` is the fallback; `svh` (smallest viewport height) keeps Safari's
+   * collapsing address bar from resizing pinned sections mid-scroll. */
+  .min-h-screen-safe {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  .h-screen-safe {
+    height: 100vh;
+    height: 100svh;
+  }
+
+  .max-h-screen-safe {
+    max-height: 100vh;
+    max-height: 100svh;
+  }
+
+  .max-h-dialog {
+    max-height: 88vh;
+    max-height: 88svh;
+  }
+
+  /* Safe areas (notches, home indicator) -------------------------------- */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .px-safe {
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+
+  /* Frosted surfaces ---------------------------------------------------- *
+   * The blur is an enhancement: without support (or with it disabled) the
+   * surface just becomes more opaque, so contrast never depends on it. */
+  .surface-blur {
+    background-color: rgba(255, 255, 255, 0.96);
+  }
+
+  @supports ((backdrop-filter: blur(14px)) or (-webkit-backdrop-filter: blur(14px))) {
+    .surface-blur {
+      background-color: rgba(255, 255, 255, 0.84);
+      backdrop-filter: saturate(150%) blur(14px);
+      -webkit-backdrop-filter: saturate(150%) blur(14px);
+    }
+  }
+
+  /* Atmosphere ---------------------------------------------------------- */
+  .grid-atmosphere {
+    background-image: linear-gradient(to right, rgba(10, 16, 32, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(10, 16, 32, 0.05) 1px, transparent 1px);
+    background-size: 68px 68px;
+  }
+
+  .grid-atmosphere-dark {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 68px 68px;
+  }
+
+  .glow-brand {
+    background: radial-gradient(
+      58% 62% at 50% 0%,
+      rgba(21, 101, 255, 0.17),
+      rgba(21, 101, 255, 0.05) 45%,
+      transparent 72%
+    );
+  }
+
+  .glow-brand-dark {
+    background: radial-gradient(
+      55% 60% at 50% 8%,
+      rgba(21, 101, 255, 0.34),
+      rgba(21, 101, 255, 0.08) 48%,
+      transparent 74%
+    );
+  }
+
+  .fade-edges {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  /* Buttons ------------------------------------------------------------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 650;
+    font-size: 0.9375rem;
+    letter-spacing: -0.008em;
+    border-radius: var(--radius-md);
+    padding: 0.8125rem 1.375rem;
+    min-height: 2.875rem;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease,
+      box-shadow 220ms ease, transform 180ms ease;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .btn:disabled,
+  .btn[aria-disabled="true"] {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-primary {
+    background: var(--dispense-blue);
+    color: #fff;
+    box-shadow: 0 1px 2px rgba(10, 16, 32, 0.08), 0 14px 30px -18px rgba(21, 101, 255, 0.75);
+  }
+
+  .btn-primary:hover {
+    background: var(--dispense-blue-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(10, 16, 32, 0.08), 0 20px 36px -20px rgba(21, 101, 255, 0.85);
+  }
+
+  .btn-primary:active {
+    background: var(--dispense-blue-pressed);
+    transform: translateY(0);
+  }
+
+  .btn-secondary {
+    background: var(--dispense-surface);
+    color: var(--dispense-ink);
+    border: 1px solid var(--dispense-border);
+    box-shadow: 0 1px 2px rgba(10, 16, 32, 0.03);
+  }
+
+  .btn-secondary:hover {
+    border-color: #cfd5e2;
+    background: var(--dispense-surface-2, #fbfcfe);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost-dark {
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .btn-ghost-dark:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.26);
+    transform: translateY(-1px);
+  }
+
+  .btn-sm {
+    min-height: 2.375rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  /* Pills & badges ------------------------------------------------------ */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4375rem;
+    border-radius: 9999px;
+    padding: 0.3125rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 650;
+    letter-spacing: 0.01em;
+    border: 1px solid var(--dispense-border);
+    background: var(--dispense-surface);
+    color: var(--dispense-text-secondary);
+    white-space: nowrap;
+  }
+
+  .pill-brand {
+    background: var(--dispense-blue-tint);
+    border-color: #d6e3ff;
+    color: var(--dispense-blue-dark);
+  }
+
+  /* Inline links inside paragraphs: keeps line rhythm while giving the link a
+     comfortable touch target on phones (WCAG 2.5.8 target size). */
+  .link-tap {
+    display: inline-block;
+    padding-block: 0.4rem;
+    margin-block: -0.4rem;
+  }
+
+  .link-underline {
+    text-decoration: underline;
+    text-decoration-color: rgba(21, 101, 255, 0.35);
+    text-underline-offset: 4px;
+    transition: text-decoration-color 180ms ease, color 180ms ease;
+  }
+
+  .link-underline:hover {
+    color: var(--dispense-blue-dark);
+    text-decoration-color: var(--dispense-blue);
+  }
+
+  /* Prose (legal / editorial long-form) --------------------------------- */
+  .prose-dispense {
+    color: var(--dispense-text-secondary);
+  }
+
+  .prose-dispense h2 {
+    font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    color: var(--dispense-ink);
+    margin-top: 2.75rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .prose-dispense h3 {
+    font-size: 1.125rem;
+    font-weight: 650;
+    color: var(--dispense-ink);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-dispense p,
+  .prose-dispense ul,
+  .prose-dispense ol {
+    margin-bottom: 1.125rem;
+  }
+
+  .prose-dispense ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .prose-dispense ul > li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-dispense ul > li::before {
+    content: "";
+    position: absolute;
+    left: 0.25rem;
+    top: 0.72em;
+    width: 5px;
+    height: 5px;
+    border-radius: 9999px;
+    background: var(--dispense-blue);
+  }
+
+  .prose-dispense strong {
+    color: var(--dispense-ink);
+    font-weight: 650;
+  }
+
+  .prose-dispense a {
+    color: var(--dispense-blue-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Utility ------------------------------------------------------------- */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 0.75rem;
+    z-index: 100;
+    transform: translateY(-160%);
+    transition: transform 160ms ease;
+    background: var(--dispense-ink);
+    color: #fff;
+    padding: 0.625rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   MOTION
+   Elements marked with [data-motion] are pre-hidden only when JavaScript has
+   confirmed it will animate them, so content is never lost without JS.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js-motion [data-motion] {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-motion] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Marquee-free, GPU-friendly defaults for animated mockup screens */
+.screen-stack {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translate3d(0, 14px, 0) scale(0.985);
+  transition: opacity 460ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.screen-stack[data-active="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen-stack {
+    transition: none;
+  }
+}
+
+/* ============================================================================
+   CONSENT
+   The banner never fights the mobile navigation for the bottom of the screen.
+   ========================================================================== */
+
+html[data-nav="open"] .consent-banner {
+  display: none;
 }

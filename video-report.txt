@@ -1,0 +1,2 @@
+SKIP — no media configured, so the section correctly shows its coming-soon state.
+       See the header of this script for the temporary-clip procedure.
