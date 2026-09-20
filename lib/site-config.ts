@@ -24,7 +24,7 @@ export const usingPlaceholderSiteUrl = siteUrl === FALLBACK_SITE_URL;
 
 const androidDownloadUrl = readEnv(process.env.NEXT_PUBLIC_ANDROID_DOWNLOAD_URL);
 const iosDownloadUrl = readEnv(process.env.NEXT_PUBLIC_IOS_DOWNLOAD_URL);
-const supportEmail = readEnv(process.env.NEXT_PUBLIC_SUPPORT_EMAIL) || "support@dispense.example";
+const supportEmail = readEnv(process.env.NEXT_PUBLIC_SUPPORT_EMAIL) || "hello.dispense@gmail.com";
 const analyticsId = readEnv(process.env.NEXT_PUBLIC_ANALYTICS_ID);
 /* Optional hosted player (YouTube/Vimeo/…). Empty means the native HTML5 video
    path is used when a file is supplied, otherwise the coming-soon state. */
