@@ -32,8 +32,8 @@ export type DispenseLogoProps = {
 
 const sizes = {
   sm: { height: 26, mark: 26, text: "text-[1.0625rem]" },
-  md: { height: 32, mark: 30, text: "text-[1.1875rem]" },
-  lg: { height: 38, mark: 38, text: "text-[1.5rem]" },
+  md: { height: 36, mark: 34, text: "text-[1.25rem]" },
+  lg: { height: 42, mark: 42, text: "text-[1.625rem]" },
 } as const;
 
 export function DispenseLogo({

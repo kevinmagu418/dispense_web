@@ -1,14 +1,13 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 
 import { demoProduct, type ActivityEntry, type SubWallet } from "@/lib/demo-data";
 import { formatKes, hexToRgba, percentOf, relativeDayLabel } from "@/lib/utils";
 import {
   ActivityIcon,
   ArrowDownLeftIcon,
-  ArrowUpRightIcon,
   BellIcon,
   CalendarIcon,
-  categoryIcons,
   ChevronLeftIcon,
   CheckCircleIcon,
   ClockIcon,
@@ -100,16 +99,17 @@ function ScreenFrame({
   );
 }
 
-function CategoryChip({ wallet, size = 26 }: { wallet: SubWallet; size?: number }) {
-  const Icon = categoryIcons[wallet.icon];
+function PayeeLogo({ wallet, size = 26 }: { wallet: SubWallet; size?: number }) {
   return (
-    <span
-      className="flex shrink-0 items-center justify-center rounded-[9px]"
-      style={{ width: size, height: size, backgroundColor: hexToRgba(wallet.color, 0.12) }}
-    >
-      <Icon width={15} height={15} style={{ color: wallet.color }} />
+    <span className="flex shrink-0 items-center justify-center overflow-hidden rounded-[9px] border border-line-soft bg-white" style={{ width: size, height: size }}>
+      <Image src={wallet.payee.logo} alt="" width={size} height={size} className="size-full object-cover" />
     </span>
   );
+}
+
+function PayeeForEntry({ entry, size = 26 }: { entry: ActivityEntry; size?: number }) {
+  const wallet = demoProduct.subWallets.find((item) => entry.detail.includes(item.name));
+  return wallet ? <PayeeLogo wallet={wallet} size={size} /> : <span className="flex shrink-0 items-center justify-center overflow-hidden rounded-[9px] border border-line-soft bg-white" style={{ width: size, height: size }}><Image src="/icons/dispense-icon-512.png" alt="" width={size} height={size} className="size-full object-cover" /></span>;
 }
 
 function SectionLabel({ children, action }: { children: ReactNode; action?: ReactNode }) {
@@ -155,11 +155,7 @@ function AmountRow({
         className="flex size-[26px] shrink-0 items-center justify-center rounded-[9px]"
         style={{ backgroundColor: hexToRgba(entry.color, 0.12) }}
       >
-        {positive ? (
-          <ArrowDownLeftIcon width={14} height={14} style={{ color: entry.color }} />
-        ) : (
-          <ArrowUpRightIcon width={14} height={14} style={{ color: entry.color }} />
-        )}
+        {positive ? <ArrowDownLeftIcon width={14} height={14} style={{ color: entry.color }} /> : <PayeeForEntry entry={entry} size={26} />}
       </span>
       <span className="min-w-0 flex-1">
         <span className="block truncate text-[11px] font-semibold text-ink">{entry.label}</span>
@@ -223,10 +219,6 @@ export function WalletScreen() {
               <PlusIcon width={12} height={12} />
               Add money
             </MiniButton>
-            <MiniButton variant="ghost">
-              <SendIcon width={12} height={12} />
-              Withdraw
-            </MiniButton>
           </div>
         </div>
       </div>
@@ -242,7 +234,7 @@ export function WalletScreen() {
             data-screen-part="subwallet"
             className="flex items-center gap-[10px] rounded-[12px] bg-white px-[10px] py-[7px]"
           >
-            <CategoryChip wallet={wallet} />
+            <PayeeLogo wallet={wallet} />
             <span className="min-w-0 flex-1">
               <span className="block text-[11px] font-semibold text-ink">{wallet.name}</span>
               <span className="block text-[9.5px] text-faint">Allocated</span>
@@ -298,10 +290,10 @@ export function SubWalletScreen({
       <div className="px-[16px] pt-[11px]">
         <div className="rounded-[18px] border border-line bg-white p-[13px]">
           <div className="flex items-center gap-[10px]">
-            <CategoryChip wallet={wallet} size={32} />
+            <PayeeLogo wallet={wallet} size={32} />
             <div>
               <p className="text-[9.5px] font-semibold uppercase tracking-[0.14em] text-faint">
-                Allocated
+                Paying {wallet.payee.name}
               </p>
               <p className="text-[20px] font-bold leading-tight tracking-[-0.03em] tabular-nums text-ink">
                 {formatKes(wallet.allocated)}
@@ -394,9 +386,9 @@ export function PayoutScreen() {
       </div>
 
       <div className="px-[16px] pt-[12px] text-center">
-        <CategoryChip wallet={rent} size={38} />
+        <PayeeLogo wallet={rent} size={38} />
         <p className="mt-[8px] text-[10px] font-semibold uppercase tracking-[0.16em] text-faint">
-          From {rent.name}
+          To {rent.payee.name}
         </p>
         <p className="mt-[4px] text-[30px] font-bold leading-none tracking-[-0.035em] tabular-nums text-ink">
           {formatKes(rent.allocated)}
@@ -408,11 +400,38 @@ export function PayoutScreen() {
       </div>
 
       <div className="px-[16px] pt-[11px]">
+        <div className="rounded-[14px] border border-line bg-white p-[10px]">
+          <p className="text-[10px] font-bold text-ink">Payout method</p>
+          <div className="mt-[7px] grid grid-cols-3 gap-[6px]">
+            {demoProduct.subWallets.slice(0, 3).map((wallet, index) => (
+              <span
+                key={wallet.key}
+                className={`flex flex-col items-center gap-[4px] rounded-[9px] px-[4px] py-[6px] text-center ${
+                  index === 1 ? "border border-brand bg-brand-tint" : "border border-line-soft"
+                }`}
+              >
+                <PayeeLogo wallet={wallet} size={22} />
+                <span className="text-[8px] font-semibold leading-tight text-subtle">{wallet.payee.name}</span>
+              </span>
+            ))}
+          </div>
+          <div className="mt-[7px] flex items-center gap-[7px] rounded-[9px] border border-brand/15 bg-brand-tint px-[8px] py-[6px]">
+            <Image src="/icons/dispense-icon-512.png" alt="" width={20} height={20} className="rounded-[6px]" />
+            <span className="min-w-0 flex-1 text-[8.5px] font-semibold leading-tight text-brand-dark">
+              Or pay another Dispense user directly
+            </span>
+            <SendIcon width={12} height={12} className="shrink-0 text-brand" />
+          </div>
+        </div>
+      </div>
+
+      <div className="px-[16px] pt-[11px]">
         <div className="overflow-hidden rounded-[14px] border border-line bg-white">
           {[
             { label: "Runs on", value: `${dueLabel} · ${rent.payoutHour ?? "8:00 AM"}` },
             { label: "Repeats", value: rent.scheduleLabel ?? "Once" },
-            { label: "Provider", value: "Your saved payout method" },
+            { label: "Payee", value: rent.payee.name },
+            { label: "Account", value: rent.payee.detail },
             { label: "Leaves wallet", value: formatKes(rent.allocated) },
           ].map((row, index) => (
             <div
@@ -541,10 +560,6 @@ export function HomeScreen() {
               <PlusIcon width={12} height={12} />
               Add money
             </MiniButton>
-            <MiniButton variant="ghost">
-              <SendIcon width={12} height={12} />
-              Withdraw
-            </MiniButton>
           </div>
         </div>
       </div>
@@ -569,7 +584,7 @@ export function HomeScreen() {
       <div className="mt-[7px] flex gap-[7px] overflow-hidden px-[16px]">
         {subWallets.slice(0, 3).map((wallet) => (
           <div key={wallet.key} className="w-[112px] shrink-0 rounded-[14px] bg-white p-[10px]">
-            <CategoryChip wallet={wallet} />
+            <PayeeLogo wallet={wallet} />
             <p className="mt-[7px] text-[10px] font-semibold text-subtle">{wallet.name}</p>
             <p className="text-[13px] font-bold tracking-[-0.02em] tabular-nums text-ink">
               {formatKes(wallet.allocated)}

@@ -18,14 +18,14 @@ export const faqs: FaqItem[] = [
     id: "what-is-dispense",
     question: "What is Dispense?",
     answer:
-      "Dispense is a personal money app. It keeps your everyday balance in one place, then lets you separate that money into sub-wallets for the things it is actually for — rent, transport, groceries, savings, emergency, education — so you can see what is available and what is already committed.",
+      "Dispense is a personal money app. It keeps your everyday balance in one place, then lets you separate that money into sub-wallets for rent, transport, groceries, savings, emergency and education. You can see what is available and what is already committed.",
     featured: true,
   },
   {
     id: "how-does-dispense-work",
     question: "How does Dispense work?",
     answer:
-      "You add money to your personal wallet, create the sub-wallets you need, and allocate amounts into them. When something has to be paid, you configure a payout from that sub-wallet — the amount, the provider and the date and time it should run. Every movement is recorded in your activity history.",
+      "You add money to your personal wallet, create the sub-wallets you need, and allocate amounts into them. When something has to be paid, you configure a payout from that sub-wallet with the amount, provider, date and time. Every movement is recorded in your activity history.",
     featured: true,
     links: [{ label: "See how it works", href: "/how-it-works" }],
   },

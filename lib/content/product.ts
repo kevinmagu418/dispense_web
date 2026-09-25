@@ -14,7 +14,7 @@ export type Feature = {
   /** Copy shown on the features page deep-dive. */
   points: string[];
   size: "large" | "medium" | "small";
-  visual: "wallet" | "subwallets" | "organize" | "payouts" | "activity";
+  visual: "wallet" | "subwallets" | "organize" | "payouts" | "activity" | "transfers";
 };
 
 export const features: Feature[] = [
@@ -51,7 +51,7 @@ export const features: Feature[] = [
     title: "Organised spending",
     summary: "Give your money a clear purpose before you spend it.",
     detail:
-      "Because every amount sits inside a named category, spending decisions get faster and looser ends get caught early — long before the end of the month.",
+      "Because every amount sits inside a named category, spending decisions get faster and looser ends get caught early, long before the end of the month.",
     points: [
       "Every amount has a name and a purpose",
       "Spending is measured against what you set aside",
@@ -65,7 +65,7 @@ export const features: Feature[] = [
     title: "Payouts",
     summary: "Move money where it needs to go, on a schedule you set.",
     detail:
-      "Configure how much should leave a sub-wallet, which provider it should go through, and the date and time it should run — then let it happen without a reminder.",
+      "Configure how much should leave a sub-wallet, which provider it should go through, and the date and time it should run. Then let it happen without a reminder.",
     points: [
       "Set an amount per payout, per sub-wallet",
       "Choose the provider when you configure the payout",
@@ -79,7 +79,7 @@ export const features: Feature[] = [
     title: "Activity",
     summary: "Understand what is happening with your money.",
     detail:
-      "A running history of what came in, what moved between your wallet and sub-wallets, and what went out through a payout — organised by the day it happened.",
+      "A running history of what came in, what moved between your wallet and sub-wallets, and what went out through a payout. It is organised by the day it happened.",
     points: [
       "Every movement recorded with its category",
       "Day-by-day history of income, allocations and payouts",
@@ -87,6 +87,20 @@ export const features: Feature[] = [
     ],
     size: "medium",
     visual: "activity",
+  },
+  {
+    id: "dispense-to-dispense",
+    title: "Dispense to Dispense",
+    summary: "Send directly to another person’s Dispense account.",
+    detail:
+      "Move money to another Dispense user by account details, with the recipient, amount and status visible in your activity history.",
+    points: [
+      "Pay another Dispense account directly",
+      "See who is being paid before you confirm",
+      "Keep transfers alongside every other wallet movement",
+    ],
+    size: "medium",
+    visual: "transfers",
   },
 ];
 
@@ -162,7 +176,7 @@ export const storyStages: StoryStage[] = [
     step: "05",
     title: "Payouts run on schedule",
     description:
-      "Each sub-wallet can pay out through the provider you chose, on the date and time you set — with its status, and yours, visible from the start.",
+      "Each sub-wallet can pay out through the provider you chose, on the date and time you set. Its status, and yours, stay visible from the start.",
     screen: "payout",
   },
   {
@@ -205,7 +219,7 @@ export const howItWorksSteps: Step[] = [
     title: "Create the sub-wallets you need",
     description: "Name the purposes your money serves and allocate into each one.",
     detail:
-      "Rent, transport, groceries, savings, emergency, education — build the set that matches your life, allocate an amount to each, and adjust as the month changes.",
+      "Rent, transport, groceries, savings, emergency and education. Build the set that matches your life, allocate an amount to each, and adjust as the month changes.",
     visual: "subwallets",
   },
   {

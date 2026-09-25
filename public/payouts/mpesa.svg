@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="M-Pesa">
+  <rect width="48" height="48" rx="10" fill="#00A859"/>
+  <path d="M25.5 12 35 24l-9.5 12h-6L29 24l-9.5-12z" fill="#fff"/>
+  <path d="M18.5 12 28 24l-9.5 12h-6L22 24l-9.5-12z" fill="#E1251B"/>
+</svg>

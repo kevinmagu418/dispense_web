@@ -18,41 +18,11 @@ const base = {
   focusable: false,
 };
 
-export function HomeIcon(props: IconProps) {
+export function WalletIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <path d="M4 10.5 12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19z" />
-      <path d="M9.5 20.5v-6h5v6" />
-    </svg>
-  );
-}
-
-export function BusIcon(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M5 16V7.5A2.5 2.5 0 0 1 7.5 5h9A2.5 2.5 0 0 1 19 7.5V16" />
-      <path d="M5 16h14v1.5a1 1 0 0 1-1 1h-1.5a1 1 0 0 1-1-1V16m-8 0v1.5a1 1 0 0 1-1 1H5.5a1 1 0 0 1-1-1z" />
-      <path d="M5 11h14M9 8h6" />
-    </svg>
-  );
-}
-
-export function CartIcon(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M4 5h1.6l1.6 9.2a1.6 1.6 0 0 0 1.6 1.3h7.6a1.6 1.6 0 0 0 1.6-1.3L19.2 8H6.2" />
-      <circle cx="9.5" cy="19" r="1.2" />
-      <circle cx="16.5" cy="19" r="1.2" />
-    </svg>
-  );
-}
-
-export function PiggyBankIcon(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M4 13.2c0-2.6 2.3-4.7 5.4-4.7h4.2c2.1 0 3.6 1 4.4 2.6l2 .5v3.3l-1.7.4a5.6 5.6 0 0 1-1.5 2v1.6h-2.4v-1.2h-3.9v1.2H8.1v-1.7A5.5 5.5 0 0 1 4 13.2" />
-      <path d="M15.4 8.5V7.2a1.2 1.2 0 0 1 1.2-1.2h.9" />
-      <circle cx="9.4" cy="12.6" r="0.9" fill="currentColor" stroke="none" />
+      <path d="M4 8.2A2.2 2.2 0 0 1 6.2 6h11.6A2.2 2.2 0 0 1 20 8.2v7.6A2.2 2.2 0 0 1 17.8 18H6.2A2.2 2.2 0 0 1 4 15.8z" />
+      <path d="M16.5 12h1.2M4 9.8h16" />
     </svg>
   );
 }
@@ -62,24 +32,6 @@ export function ShieldIcon(props: IconProps) {
     <svg {...base} {...props}>
       <path d="M12 3.5 5.5 6v5.4c0 3.6 2.6 6.9 6.5 8.1 3.9-1.2 6.5-4.5 6.5-8.1V6z" />
       <path d="M9.4 12.2l1.9 1.9 3.4-3.6" />
-    </svg>
-  );
-}
-
-export function BookIcon(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M5 5.5A1.5 1.5 0 0 1 6.5 4H18v15H6.5A1.5 1.5 0 0 1 5 17.5z" />
-      <path d="M5 17.5A1.5 1.5 0 0 1 6.5 16H18v3H6.5A1.5 1.5 0 0 1 5 17.5zM8.5 8h6M8.5 11.5h4" />
-    </svg>
-  );
-}
-
-export function WalletIcon(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M4 8.2A2.2 2.2 0 0 1 6.2 6h11.6A2.2 2.2 0 0 1 20 8.2v7.6A2.2 2.2 0 0 1 17.8 18H6.2A2.2 2.2 0 0 1 4 15.8z" />
-      <path d="M16.5 12h1.2M4 9.8h16" />
     </svg>
   );
 }
@@ -265,11 +217,111 @@ export function GridIcon(props: IconProps) {
   );
 }
 
-export const categoryIcons = {
-  home: HomeIcon,
-  bus: BusIcon,
-  cart: CartIcon,
-  piggy: PiggyBankIcon,
-  shield: ShieldIcon,
-  book: BookIcon,
-} as const;
+export function CookieIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M19.4 13.1A7.5 7.5 0 0 1 10.9 4.6c.2-.8-.6-1.5-1.4-1.2A8.9 8.9 0 1 0 20.6 14.5c.3-.8-.4-1.6-1.2-1.4Z" />
+      <circle cx="9" cy="11" r="1" fill="currentColor" stroke="none" />
+      <circle cx="13" cy="16" r="1" fill="currentColor" stroke="none" />
+      <circle cx="7.5" cy="15.5" r=".8" fill="currentColor" stroke="none" />
+      <circle cx="15.5" cy="9" r=".9" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+/** Official Brand Logos for payout providers */
+export function MpesaLogo({ className, size = 20 }: { className?: string; size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      className={className}
+    >
+      <rect width="48" height="48" rx="10" fill="#00A859" />
+      {/* Safaricom / M-PESA signature double chevron arrow in white */}
+      <path
+        d="M25.5 12L35 24L25.5 36H19.5L29 24L19.5 12H25.5Z"
+        fill="#FFFFFF"
+      />
+      <path
+        d="M18.5 12L28 24L18.5 36H12.5L22 24L12.5 12H18.5Z"
+        fill="#E1251B"
+      />
+    </svg>
+  );
+}
+
+export function KcbLogo({ className, size = 20 }: { className?: string; size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      className={className}
+    >
+      <rect width="48" height="48" rx="10" fill="#008037" />
+      {/* KCB distinctive white lion head silhouette & shield motif */}
+      <path
+        d="M24 10C16.27 10 10 16.27 10 24C10 31.73 16.27 38 24 38C31.73 38 38 31.73 38 24C38 16.27 31.73 10 24 10Z"
+        fill="#00682B"
+      />
+      <path
+        d="M24 13C21.2 13 18.8 14.8 17.5 17.5C18.8 18.2 20.8 18.5 22.5 18C23.2 16.8 24 15.8 25.5 15.2C27 14.6 28.5 15 29.5 16C30.8 17.3 30.5 19.5 29.5 21C31 20.8 32.5 21.2 33.5 22.5C32.8 24.8 31 26 29 26.5C28 28.5 26.5 30.5 24.5 31.5C22.5 32.5 19.5 32.5 17 31.5C18.5 30.2 20 28.5 20.5 26.5C19 26 17.5 24.8 16.8 23.2C16 21.5 16.2 19.5 17.2 18C15 20.2 13.8 23.2 13.8 26.5C13.8 32.2 18.4 36.8 24.1 36.8C29.8 36.8 34.4 32.2 34.4 26.5C34.4 19.1 29.8 13 24 13Z"
+        fill="#B5D334"
+      />
+      <circle cx="21" cy="22" r="1.5" fill="#008037" />
+    </svg>
+  );
+}
+
+export function EquityLogo({ className, size = 20 }: { className?: string; size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      className={className}
+    >
+      <rect width="48" height="48" rx="10" fill="#A32A29" />
+      {/* Equity Bank iconic solid brown roof / pediment emblem */}
+      <path
+        d="M24 13L12 23H17V33H31V23H36L24 13Z"
+        fill="#FFFFFF"
+      />
+      <rect x="21" y="25" width="6" height="8" rx="1" fill="#A32A29" />
+    </svg>
+  );
+}
+
+export function BankBuildingIcon({ className, size = 20 }: { className?: string; size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      className={className}
+    >
+      <rect width="48" height="48" rx="10" fill="#1E293B" />
+      {/* Universal Bank Classical Pediment & Pillars in Crisp White */}
+      <path d="M24 13L13 19H35L24 13Z" fill="#FFFFFF" />
+      <rect x="15" y="21" width="3" height="9" rx="0.5" fill="#FFFFFF" />
+      <rect x="21" y="21" width="3" height="9" rx="0.5" fill="#FFFFFF" />
+      <rect x="27" y="21" width="3" height="9" rx="0.5" fill="#FFFFFF" />
+      <rect x="30" y="21" width="3" height="9" rx="0.5" fill="#FFFFFF" />
+      <rect x="12" y="31" width="24" height="3" rx="0.8" fill="#FFFFFF" />
+    </svg>
+  );
+}

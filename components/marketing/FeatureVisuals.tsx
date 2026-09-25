@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 
 import { demoProduct } from "@/lib/demo-data";
 import type { Feature } from "@/lib/content/product";
@@ -8,7 +9,6 @@ import {
   ArrowDownLeftIcon,
   ArrowUpRightIcon,
   CalendarIcon,
-  categoryIcons,
   ClockIcon,
   PlusIcon,
   SendIcon,
@@ -63,14 +63,13 @@ export function SubWalletsVisual() {
     <VisualShell>
       <ul className="flex flex-col gap-2.5">
         {demoProduct.subWallets.map((wallet) => {
-          const Icon = categoryIcons[wallet.icon];
           return (
             <li key={wallet.key} className="flex items-center gap-3">
               <span
                 className="flex size-7 shrink-0 items-center justify-center rounded-[9px]"
-                style={{ backgroundColor: hexToRgba(wallet.color, 0.12) }}
+                style={{ backgroundColor: hexToRgba(wallet.color, 0.08) }}
               >
-                <Icon width={14} height={14} style={{ color: wallet.color }} />
+                <Image src={wallet.payee.logo} alt="" width={20} height={20} className="size-full rounded-[7px] object-cover" />
               </span>
               <span className="flex-1 text-[0.8125rem] font-semibold text-ink">{wallet.name}</span>
               <span className="text-[0.8125rem] font-bold tabular-nums text-ink">
@@ -192,12 +191,31 @@ export function ActivityVisual() {
   );
 }
 
+export function TransfersVisual() {
+  return (
+    <VisualShell>
+      <div className="flex items-center gap-3 rounded-[12px] border border-brand/15 bg-brand-tint p-3">
+        <Image src="/icons/dispense-icon-512.png" alt="" width={34} height={34} className="rounded-[10px]" />
+        <div className="min-w-0 flex-1">
+          <p className="text-[0.8125rem] font-bold text-ink">Amina K.</p>
+          <p className="truncate text-[0.75rem] text-subtle">Dispense account · •••• 4408</p>
+        </div>
+        <span className="text-[0.8125rem] font-bold tabular-nums text-ink">− KSh 2,500</span>
+      </div>
+      <p className="mt-3 flex items-center gap-2 text-[0.75rem] font-semibold text-brand-dark">
+        <SendIcon width={13} height={13} /> Direct, account to account
+      </p>
+    </VisualShell>
+  );
+}
+
 const visuals: Record<Feature["visual"], () => React.JSX.Element> = {
   wallet: WalletVisual,
   subwallets: SubWalletsVisual,
   organize: OrganiseVisual,
   payouts: PayoutsVisual,
   activity: ActivityVisual,
+  transfers: TransfersVisual,
 };
 
 export function FeatureVisual({ visual }: { visual: Feature["visual"] }) {

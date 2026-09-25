@@ -1,9 +1,10 @@
 import { demoProduct } from "@/lib/demo-data";
+import Image from "next/image";
 import { formatDate, formatKes, percentOf } from "@/lib/utils";
 
 import { SectionHeading } from "./SectionHeading";
 import { Reveal } from "./Reveal";
-import { categoryIcons, LayersIcon, SendIcon, WalletIcon } from "./app-ui/icons";
+import { LayersIcon, SendIcon, WalletIcon } from "./app-ui/icons";
 
 /**
  * Editorial section: product education for readers searching for budgeting and
@@ -82,22 +83,32 @@ export function EditorialNote() {
           </Reveal>
 
           <Reveal delay={0.08} className="lg:pt-6">
-            <div className="rounded-[24px] border border-line bg-surface p-6 sm:p-8">
-              <p className="t-eyebrow text-faint">How money moves</p>
+            <div className="group relative overflow-hidden rounded-[24px] border border-[#dce7fb] bg-[linear-gradient(145deg,#ffffff_0%,#fbfdff_58%,#f3f7ff_100%)] p-6 shadow-[0_18px_45px_-34px_rgba(21,101,255,0.34),0_2px_8px_-4px_rgba(10,16,32,0.12)] transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-[#bfd3f7] hover:shadow-[0_24px_58px_-34px_rgba(21,101,255,0.42),0_8px_18px_-12px_rgba(10,16,32,0.16)] motion-reduce:transition-none motion-reduce:hover:transform-none sm:p-8">
+              <span aria-hidden="true" className="pointer-events-none absolute -right-24 -top-28 size-72 rounded-full bg-brand/[0.07] blur-3xl" />
+              <span aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-35 [background-image:radial-gradient(#1565ff_0.7px,transparent_0.7px)] [background-size:18px_18px] [mask-image:linear-gradient(135deg,black,transparent_68%)]" />
+              <div className="relative z-10 flex items-start justify-between gap-4 border-b border-brand/10 pb-5">
+                <div>
+                  <p className="t-eyebrow text-brand-dark/70">How money moves</p>
+                  <p className="mt-1.5 text-[0.8125rem] font-semibold text-ink">A clear path from income to purpose</p>
+                </div>
+                <span className="shrink-0 rounded-full border border-brand/15 bg-brand-tint px-2.5 py-1 text-[0.6875rem] font-bold text-brand-dark">
+                  Live example
+                </span>
+              </div>
 
-              <ol className="mt-7 flex flex-col">
+              <ol className="relative z-10 mt-6 flex flex-col gap-2.5">
                 {flow.map((step, index) => (
-                  <li key={step.id} className="relative flex gap-4 pb-7 last:pb-0">
+                  <li key={step.id} className="relative flex gap-3.5 rounded-[16px] border border-brand/10 bg-white/65 p-3.5 transition-colors duration-300 hover:border-brand/20 hover:bg-white/90 motion-reduce:transition-none">
                     {index < flow.length - 1 ? (
                       <span
                         aria-hidden="true"
-                        className="absolute left-[19px] top-10 h-[calc(100%-1.5rem)] w-px bg-line"
+                        className="absolute left-[29px] top-[3.75rem] -bottom-[0.625rem] w-px bg-brand/15"
                       />
                     ) : null}
-                    <span className="relative z-10 flex size-10 shrink-0 items-center justify-center rounded-[12px] border border-line bg-surface-2">
+                    <span className="relative z-10 flex size-10 shrink-0 items-center justify-center rounded-[12px] border border-brand/15 bg-[linear-gradient(145deg,#f7faff_0%,#e7f0ff_100%)] text-brand shadow-[0_8px_18px_-12px_rgba(21,101,255,0.7)]">
                       {step.icon}
                     </span>
-                    <span className="flex flex-col gap-1 pt-1.5">
+                    <span className="flex min-w-0 flex-col gap-1 pt-0.5">
                       <span className="text-[0.9375rem] font-semibold text-ink">{step.label}</span>
                       <span className="t-small">{step.detail}</span>
                     </span>
@@ -105,12 +116,11 @@ export function EditorialNote() {
                 ))}
               </ol>
 
-              <div className="mt-6 flex flex-wrap gap-x-4 gap-y-3 border-t border-line-soft pt-6">
+              <div className="relative z-10 mt-6 flex flex-wrap gap-x-4 gap-y-3 border-t border-brand/10 pt-6">
                 {subWallets.map((wallet) => {
-                  const Icon = categoryIcons[wallet.icon];
                   return (
                     <span key={wallet.key} className="flex items-center gap-2">
-                      <Icon width={15} height={15} style={{ color: wallet.color }} />
+                      <Image src={wallet.payee.logo} alt="" width={20} height={20} className="size-5 rounded-[6px] object-cover" />
                       <span className="text-[0.8125rem] text-subtle">
                         {wallet.name}{" "}
                         <span className="tabular-nums text-faint">
@@ -131,7 +141,7 @@ export function EditorialNote() {
                 </span>
               </div>
 
-              <p className="t-small mt-6 text-faint">
+              <p className="t-small relative z-10 mt-6 text-faint">
                 Figures show an example month — {formatKes(incomeReceived)} received and{" "}
                 {formatKes(allocatedTotal)} given a purpose. Your own amounts are yours to set.
               </p>

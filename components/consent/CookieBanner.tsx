@@ -3,6 +3,7 @@
 import Link from "next/link";
 
 import { useConsent } from "./ConsentProvider";
+import { CookieIcon } from "@/components/marketing/app-ui/icons";
 
 /**
  * Consent banner.
@@ -27,10 +28,14 @@ export function CookieBanner() {
       <div
         role="region"
         aria-label="Cookie consent"
-        className="surface-blur mx-auto flex w-full max-w-[70rem] flex-col gap-4 rounded-[18px] border border-line p-4 shadow-[0_30px_70px_-40px_rgba(10,16,32,0.55)] sm:p-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10"
+        className="surface-blur mx-auto flex w-full max-w-[58rem] flex-col gap-4 rounded-[20px] border border-line p-4 shadow-[0_24px_65px_-38px_rgba(10,16,32,0.52)] sm:p-5 lg:flex-row lg:items-center lg:gap-7"
       >
-        <div className="flex flex-col gap-2">
-          <h2 className="t-h4 text-ink">We use cookies</h2>
+        <div className="flex min-w-0 items-start gap-3">
+          <span className="flex size-9 shrink-0 items-center justify-center rounded-[11px] bg-brand-tint text-brand">
+            <CookieIcon width={18} height={18} />
+          </span>
+          <div className="flex min-w-0 flex-col gap-1">
+          <h2 className="text-[0.9375rem] font-bold tracking-[-0.01em] text-ink">Your privacy, your choice</h2>
           <p className="t-small max-w-[64ch]">
             Essential cookies keep the website working and remember your choice here. Optional
             analytics cookies help us understand how visitors use Dispense — which pages are read,
@@ -42,27 +47,28 @@ export function CookieBanner() {
           >
             Read about cookies in our privacy policy
           </Link>
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-2.5 sm:flex sm:items-center sm:gap-3 lg:shrink-0">
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:shrink-0 sm:items-center sm:gap-2.5">
           <button
             type="button"
             onClick={openPreferences}
-            className="btn btn-secondary btn-sm col-span-2 w-full sm:order-1 sm:w-auto"
+            className="btn btn-secondary btn-sm col-span-2 w-full px-3 text-[0.8125rem] sm:order-1 sm:w-auto"
           >
             Manage preferences
           </button>
           <button
             type="button"
             onClick={rejectOptional}
-            className="btn btn-secondary btn-sm w-full sm:order-2 sm:w-auto"
+            className="btn btn-secondary btn-sm w-full px-3 text-[0.8125rem] sm:order-2 sm:w-auto"
           >
             Reject optional
           </button>
           <button
             type="button"
             onClick={acceptAll}
-            className="btn btn-primary btn-sm w-full sm:order-3 sm:w-auto"
+            className="btn btn-primary btn-sm w-full px-3 text-[0.8125rem] sm:order-3 sm:w-auto"
           >
             Accept all
           </button>

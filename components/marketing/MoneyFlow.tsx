@@ -4,12 +4,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import Image from "next/image";
 
 import { demoProduct } from "@/lib/demo-data";
-import { formatKes, hexToRgba, percentOf } from "@/lib/utils";
+import { formatKes, percentOf } from "@/lib/utils";
 
 import { SectionHeading } from "./SectionHeading";
-import { categoryIcons, LayersIcon } from "./app-ui/icons";
+import { LayersIcon } from "./app-ui/icons";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -86,14 +87,14 @@ export function MoneyFlow() {
             <SectionHeading
               eyebrow="The problem"
               title="One balance has to answer too many questions at once."
-              description="When everything sits in the same place, the number on your screen cannot tell you whether the rent is covered or whether this week is already spent. The information you need is not missing — it is just unlabelled."
+              description="When everything sits in the same place, the number on your screen cannot tell you whether the rent is covered or whether this week is already spent. The information you need is not missing. It is just unlabelled."
             />
 
             <div className="flex flex-col gap-6 border-l-2 border-brand/30 pl-6">
               <p className="t-h4 text-ink">Dispense labels it before you spend it.</p>
               <p className="t-body">
                 Income lands in your wallet and is immediately given structure: an amount for rent, a
-                smaller line for transport, something set aside for savings. Same money — a decision
+                smaller line for transport, something set aside for savings. It is the same money, with a decision
                 you can see.
               </p>
             </div>
@@ -132,7 +133,6 @@ export function MoneyFlow() {
 
             <ul className="mt-1 flex flex-col gap-2.5">
               {subWallets.map((wallet) => {
-                const Icon = categoryIcons[wallet.icon];
                 return (
                   <li
                     key={wallet.key}
@@ -140,11 +140,8 @@ export function MoneyFlow() {
                     data-motion=""
                     className="flex items-center gap-3.5 rounded-[14px] border border-line-soft bg-surface-2 px-4 py-3"
                   >
-                    <span
-                      className="flex size-9 shrink-0 items-center justify-center rounded-[11px]"
-                      style={{ backgroundColor: hexToRgba(wallet.color, 0.12) }}
-                    >
-                      <Icon width={17} height={17} style={{ color: wallet.color }} />
+                    <span className="flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-[11px] border border-line-soft bg-white">
+                      <Image src={wallet.payee.logo} alt="" width={36} height={36} className="size-full object-cover" />
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="block text-[0.9375rem] font-semibold text-ink">

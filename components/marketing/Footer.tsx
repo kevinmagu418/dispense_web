@@ -33,7 +33,7 @@ export function Footer() {
             </Link>
             <p className="t-small max-w-[34ch]">
               Dispense keeps your everyday balance in one place and separates it into sub-wallets for
-              rent, transport, groceries, savings and more — so your money has a purpose before it
+              rent, transport, groceries, savings and more. Your money has a purpose before it
               leaves.
             </p>
             <div className="flex flex-col gap-3 pt-1">

@@ -36,7 +36,7 @@ export const siteConfig = {
   /** Used in <title> defaults, JSON-LD and the footer. */
   tagline: "Your money, organized around your life.",
   description:
-    "Dispense is a personal money app that keeps your everyday balance in one place and separates it into sub-wallets for rent, transport, groceries, savings and more — so you always know what is available and what is already spoken for.",
+    "Dispense is a personal money app that keeps your everyday balance in one place and separates it into sub-wallets for rent, transport, groceries, savings and more. You always know what is available and what is already spoken for.",
   url: siteUrl,
   usingPlaceholderSiteUrl,
   locale: "en_KE",

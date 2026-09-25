@@ -32,7 +32,7 @@ const VideoDemo = dynamic(() =>
 export const metadata: Metadata = pageMetadata({
   title: "Dispense — Organize Your Money Around Your Life",
   description:
-    "Dispense is a personal money app that keeps your everyday balance in one place, then separates it into sub-wallets for rent, transport, groceries and savings — so you always know what is available and what is already committed.",
+    "Dispense is a personal money app that keeps your everyday balance in one place, then separates it into sub-wallets for rent, transport, groceries and savings. You always know what is available and what is already committed.",
   path: "/",
   keywords: [
     "personal finance app",

@@ -31,7 +31,8 @@ export type SubWallet = {
   colorClass: string;
   /** Raw hex, for SVG fills. */
   color: string;
-  icon: "home" | "bus" | "cart" | "piggy" | "shield" | "book";
+  /** The real recipient shown when money leaves this sub-wallet. */
+  payee: { name: string; detail: string; logo: string };
   /** Day of month the scheduled payout runs, when a schedule exists. */
   payoutDayOfMonth?: number;
   payoutHour?: string;
@@ -47,7 +48,7 @@ const subWallets: SubWallet[] = [
     purpose: "Set aside the moment income lands, so rent is never a scramble.",
     colorClass: "text-cat-rent",
     color: "#1565ff",
-    icon: "home",
+    payee: { name: "KCB Bank", detail: "Rent account · •••• 2481", logo: "/payouts/kcb.png" },
     payoutDayOfMonth: 5,
     payoutHour: "8:00 AM",
     scheduleLabel: "5th of every month",
@@ -60,7 +61,7 @@ const subWallets: SubWallet[] = [
     purpose: "A daily limit that stays visible, so the week does not run dry.",
     colorClass: "text-cat-transport",
     color: "#16a34a",
-    icon: "bus",
+    payee: { name: "M-Pesa", detail: "Jane W. · •••• 0934", logo: "/payouts/mpesa.svg" },
   },
   {
     key: "groceries",
@@ -70,7 +71,7 @@ const subWallets: SubWallet[] = [
     purpose: "Household money that does not disappear into general spending.",
     colorClass: "text-cat-groceries",
     color: "#111827",
-    icon: "cart",
+    payee: { name: "Equity Bank", detail: "Groceries account · •••• 7102", logo: "/payouts/equity-bank-kenya-logo.png" },
   },
   {
     key: "savings",
@@ -80,7 +81,7 @@ const subWallets: SubWallet[] = [
     purpose: "Quiet, automatic progress — no willpower required each month.",
     colorClass: "text-cat-savings",
     color: "#0e7490",
-    icon: "piggy",
+    payee: { name: "Dispense · Amina K.", detail: "Dispense account · •••• 4408", logo: "/icons/dispense-icon-512.png" },
   },
 ];
 
@@ -93,7 +94,7 @@ const futureWallets: SubWallet[] = [
     purpose: "Cover for the months that do not go to plan.",
     colorClass: "text-cat-emergency",
     color: "#9333ea",
-    icon: "shield",
+    payee: { name: "NCBA Bank", detail: "Emergency account · •••• 1840", logo: "/payouts/ncba-bank-logo.png" },
   },
   {
     key: "education",
@@ -103,7 +104,7 @@ const futureWallets: SubWallet[] = [
     purpose: "School fees and courses, saved in steady instalments.",
     colorClass: "text-cat-education",
     color: "#e11d48",
-    icon: "book",
+    payee: { name: "NCBA Bank", detail: "Education account · •••• 6691", logo: "/payouts/ncba-bank-logo.png" },
   },
 ];
 
@@ -129,10 +130,18 @@ export type ActivityEntry = {
 const activitySeed: Array<Omit<ActivityEntry, "id" | "date"> & { daysAgo: number }> = [
   {
     label: "Rent payout",
-    detail: "Rent sub-wallet",
+    detail: "KCB Bank · Rent sub-wallet",
     amount: 18_000,
     direction: "out",
     daysAgo: 0,
+    color: "#1565ff",
+  },
+  {
+    label: "Sent to Amina K.",
+    detail: "Dispense-to-Dispense · Savings sub-wallet",
+    amount: 2_500,
+    direction: "out",
+    daysAgo: 2,
     color: "#1565ff",
   },
   {

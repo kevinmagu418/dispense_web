@@ -3,6 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
+import Image from "next/image";
 
 import { demoProduct } from "@/lib/demo-data";
 import { motion as motionTokens } from "@/lib/constants";
@@ -10,7 +11,7 @@ import { formatKes } from "@/lib/utils";
 
 import { PhoneMockup } from "./PhoneMockup";
 import { WalletScreen } from "./app-ui/screens";
-import { CalendarIcon, BusIcon } from "./app-ui/icons";
+import { CalendarIcon } from "./app-ui/icons";
 
 /**
  * The hero product presentation.
@@ -124,9 +125,9 @@ export function HeroVisual() {
         >
           <span className="flex items-center gap-2">
             <span className="flex size-7 items-center justify-center rounded-[9px] bg-[#e8f7ee]">
-              <BusIcon width={14} height={14} className="text-cat-transport" />
+              <Image src={busWallet.payee.logo} alt="" width={28} height={28} className="size-full rounded-[9px] object-cover" />
             </span>
-            <span className="text-[0.8125rem] font-semibold text-ink">Transport</span>
+            <span className="text-[0.8125rem] font-semibold text-ink">{busWallet.payee.name}</span>
           </span>
           <p className="mt-2 text-[0.8125rem] font-semibold tabular-nums text-ink">
             {formatKes(transportLeft)} left

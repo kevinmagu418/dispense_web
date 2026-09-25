@@ -49,7 +49,7 @@ export function HeroSection() {
 
             <p className="t-lead mt-7 max-w-[46ch]">
               Dispense holds the money you live on in one place, then separates it into the things it
-              is actually for — rent, transport, groceries, savings. You always know what is
+              is actually for: rent, transport, groceries, savings. You always know what is
               available, and what is already spoken for.
             </p>
 
